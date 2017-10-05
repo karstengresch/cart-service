@@ -2,13 +2,11 @@ package com.redhat.coolstore.cart.service;
 
 import com.redhat.coolstore.cart.model.ShoppingCart;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 /**
  * Created by Karsten Gresch on 05.10.17.
  */
-@Component("priceCalculationService")
-@Service
+@Component
 public class PriceCalculationServiceImpl implements PriceCalculationService
 {
 

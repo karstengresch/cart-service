@@ -4,6 +4,6 @@ import com.redhat.coolstore.cart.model.ShoppingCart;
 
 public interface PriceCalculationService {
 
-    public void priceShoppingCart(ShoppingCart sc);
+    public void priceShoppingCart(ShoppingCart shoppingCart);
 
 }

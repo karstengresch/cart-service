@@ -41,9 +41,10 @@ public class ShoppingCart implements Serializable {
         shoppingCartItemList = new ArrayList<ShoppingCartItem>();
     }
 
-    public void addShoppingCartItem(ShoppingCartItem sci) {
-        if (sci != null) {
-            shoppingCartItemList.add(sci);
+    public void addShoppingCartItem(ShoppingCartItem shoppingCartItem) {
+        if (shoppingCartItem != null) {
+            shoppingCartItemList.add(shoppingCartItem);
+            updateShoppingCartItemTotal();
         }
     }
 
@@ -53,6 +54,12 @@ public class ShoppingCart implements Serializable {
             removed = shoppingCartItemList.remove(sci);
         }
         return removed;
+    }
+
+    private void updateShoppingCartItemTotal() {
+        System.out.println("Shopping Cart Item List size: " + shoppingCartItemList.size());
+        Double newShoppingCartItemSum = shoppingCartItemList.stream().map(ShoppingCartItem::getPrice).mapToDouble(Double::doubleValue).sum();
+        this.setCartItemTotal((newShoppingCartItemSum*100)/100.0);
     }
 
     public double getCartItemTotal() {
